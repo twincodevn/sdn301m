@@ -1,15 +1,12 @@
-const rect = {
-    perimeter: (x,y) => (2*(x+y)),
-    area: (x,y) => x * y 
-}
+const rect = require('./rectangle');
 
-const solveRect = (x,y) =>{
-    if(x <= 0 || y <= 0){
-        console.log('Length and width of shape is invalid')
+const solveRect = (err, r) => {
+    if(err){
+        console.log('Invalid')
     }else{
-        console.log('Perimeter: ', rect.perimeter(x,y))
-        console.log('Area: ', rect.area(x,y))
+        console.log("peri: ", r.perimeter());
+        console.log("area: ", r.area());
     }
-}
+};
 
-solveRect(3,4)
+rect(3,4,solveRect)
